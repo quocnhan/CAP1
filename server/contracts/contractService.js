@@ -1,4 +1,4 @@
-const contractCompile = require('../../server/contracts/contractCompile.js');
+const contractCompile = require('./contractCompile');
 const HDWalletProvider = require('truffle-hdwallet-provider')
 const Web3 = require('web3');
 const seeds = "bulb light hero agree drip nephew garbage loud plastic exist day peace";
@@ -112,59 +112,6 @@ const _getBonus = async (_con) => {
     });
 }
 
-// const _watchAllEvents = async (_con, _address) => {
-//     return new Promise((resolve, reject) => {
-//         let events = _con.allEvents({ from: _address }, { fromBlock: 0, toBlock: 'latest' });
-//         // events.watch((error, event) => {
-//         //     if (error) resolve(error);
-//         //     resolve(event);
-//         // })
-//         events.get(function (error, logs) {
-//             resolve(logs);
-//         });
-//     });
-// }
-
-
-// const _watchBuyToken = async (_con, _address) => {
-//     return new Promise((resolve, reject) => {
-//         let events = _con.BuyToken({ _from: _address }, { fromBlock: 0, toBlock: 'latest' });
-//         // events.watch((error, event) => {
-//         //     if (error) resolve(error);
-//         //     resolve(event);
-//         // })
-//         events.get(function (error, logs) {
-//             resolve(logs);
-//         });
-//     });
-// }
-
-// const _watchFundTransfer = async (_con, _address) => {
-//     return new Promise((resolve, reject) => {
-//         let events = _con.FundTransfer({ _to: _address }, { fromBlock: 0, toBlock: 'latest' });
-//         // events.watch((error, event) => {
-//         //     if (error) resolve(error);
-//         //     resolve(event);
-//         // })
-//         events.get(function (error, logs) {
-//             resolve(logs);
-//         });
-
-//     });
-// }
-
-// const _watchDeposit = async (_con, _address) => {
-//     return new Promise((resolve, reject) => {
-//         let events = _con.Deposit({ _from: _address }, { fromBlock: 0, toBlock: 'latest' });
-//         // events.watch((error, event) => {
-//         //     if (error) resolve(error);
-//         //     resolve(event);
-//         // })
-//         events.get(function (error, logs) {
-//             resolve(logs);
-//         });
-//     });
-// }
 
 class DTUContract {
     constructor(_address) {
@@ -216,17 +163,6 @@ class DTUContract {
     getBonus() {
         return _getBonus(this.instance);
     }
-    // watchAllEvents(_address) {
-    //     return _watchAllEvents(this.instance, _address);
-    // }
-    // watchBuyToken(_address) {
-    //     return _watchBuyToken(this.instance, _address);
-    // }
-    // watchFundTransfer(_address) {
-    //     return _watchFundTransfer(this.instance, _address);
-    // }
-    // watchDeposit(_address) {
-    //     return _watchDeposit(this.instance, _address);
-    // }
+
 }
 module.exports = DTUContract;

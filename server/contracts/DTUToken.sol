@@ -104,7 +104,7 @@ contract DTUToken is Implement {
     event BuyToken(address indexed _from,uint indexed _valueSend,uint indexed _exchange);
     event FundTransfer(address indexed _to,uint indexed _valueSend);
     //event Deposit(address indexed _from,uint indexed _value,string indexed message);
-    event Deposit(address indexed _from,uint indexed _value);
+    event Deposit(address indexed _from,uint indexed _valueSend);
 
     mapping (address => bool) public isRegister;
     mapping (address => uint) public totalBonus;

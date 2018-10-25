@@ -5,9 +5,13 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
+// get require index page
 let index = require('./routes/index');
+//require requestSubmit page
 let requestSubmit = require('./routes/requestSubmit_route');
+//get admin page
 let adminRoute = require('./routes/admin');
+//get token page
 let tokenPage  = require('./routes/token_route');
 
 //Import the mongoose module
@@ -25,6 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/', index);
 app.use('/request', requestSubmit);
 app.use('/admin', adminRoute);
