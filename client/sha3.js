@@ -1,7 +1,3 @@
-const Web3 = require('web3');
-let web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/"));
-
-// console.log( web3.sha3('Deposit(address,uint256)'));
 
 module.exports = {
     topicBuyToken : ()=>{
@@ -12,6 +8,9 @@ module.exports = {
     },
     topicDeposit : ()=>{
         return web3.sha3('Deposit(address,uint256)');
+    },
+    topicTransfer : ()=>{
+        return web3.sha3('Transfer(address,address,uint256)');
     }
 }
 

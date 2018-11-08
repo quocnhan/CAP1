@@ -36,8 +36,8 @@ contract Token {
     function transferFrom(address, address, uint) public returns (bool) {}
     function approve(address, uint) public returns (bool) {}
     function allowance(address, address) public view returns (uint) {}
-    event Transfer(address indexed, address indexed, uint);
-    event Approval(address indexed, address indexed, uint);
+    event Transfer(address indexed, address indexed, uint indexed);
+    event Approval(address indexed, address indexed, uint indexed);
 }
 
 contract Implement is Token {
@@ -90,6 +90,7 @@ contract DTUToken is Implement {
     uint public totalSupply;         
     address public creator;
     address public cashier;
+    string public description;
     uint[] public bonus = [5,6,7];
 
     modifier onlyCreator(){
@@ -110,13 +111,14 @@ contract DTUToken is Implement {
     mapping (address => uint) public totalBonus;
     mapping (address => uint) public timeRegister;
 
-    constructor (string _name,uint _decimals,string _symbol,uint _unitCan,address _cashier) public{
+    constructor (string _name,uint _decimals,string _symbol,uint _unitCan,address _cashier,string _description) public{
         totalSupply = 0;  
         name = _name;                                  
         decimals = _decimals;                                           
         symbol = _symbol;                                            
         rating = _unitCan;                                      
         cashier = _cashier;
+        description = _description;
         creator = msg.sender;
     }
 
