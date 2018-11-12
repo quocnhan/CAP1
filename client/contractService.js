@@ -121,9 +121,18 @@ const _getCashier = async (_instance) => {
         });
     });
 }
+//get rate bonus
 const _getBonus = async (_instance) => {
     return new Promise((resolve, reject) => {
         _instance.bonus.call((err, data) => {
+            if (err) resolve(err);
+            resolve(data);
+        });
+    });
+}
+const _getTotalBonus = async (_instance,_address) => {
+    return new Promise((resolve, reject) => {
+        _instance.totalBonus.call(_address,(err, data) => {
             if (err) resolve(err);
             resolve(data);
         });
@@ -193,6 +202,9 @@ class DTUContract {
     }
     getBonus() {
         return _getBonus(this.instance);
+    }
+    getTotalBonus(_address) {
+        return _getTotalBonus(this.instance,_address);
     }
     getBalance(_address) {
         return _getBalance(this.instance,_address);
