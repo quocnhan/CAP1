@@ -19,7 +19,7 @@ const getAccount = () => {
         });
     });
 }
-const deployContract = (_tkContract, _name, _decimal, _symbol, _rating, _cashier) => {
+const deployContract = (_tkContract, _name, _decimal, _symbol, _rating, _cashier,_description) => {
     return new Promise(async (resolve, reject) => {
         _tkContract.new(
             _name,
@@ -27,6 +27,7 @@ const deployContract = (_tkContract, _name, _decimal, _symbol, _rating, _cashier
             _symbol,
             _rating,
             _cashier,
+            _description,
             {
                 from: await getAccount(),
                 data: `0x${contractCompile.bytecode}`,
